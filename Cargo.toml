@@ -1,0 +1,13 @@
+[workspace]
+members = []
+resolver = "3"
+
+# benchmark 与 release 统一使用 O2 + 单 codegen unit + LTO，
+# 保证被比较的两个实现处在同一编译设置下。
+[profile.release]
+opt-level = 2
+lto = true
+codegen-units = 1
+
+[profile.bench]
+inherits = "release"
