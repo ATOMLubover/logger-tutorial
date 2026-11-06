@@ -1,0 +1,11 @@
+[package]
+name = "logger-baseline-simple"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+# 仅用于采样归因：关闭 log/format_time/format_line/dispatch 的内联。
+profile = []
+
+[dependencies]
+time = { version = "0.3", features = ["formatting", "macros", "local-offset"] }

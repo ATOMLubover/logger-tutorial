@@ -1,6 +1,7 @@
 [workspace]
 members = [
     "baseline",
+    "baseline-simple",
 ]
 resolver = "3"
 
