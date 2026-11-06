@@ -1,0 +1,51 @@
+[package]
+name = "logger-bench"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[lib]
+bench = false
+
+[features]
+# 采样归因用：让各实现的关键函数不被内联。
+profile = [
+    "logger-baseline-simple/profile",
+    "logger-cache-prefix/profile",
+    "static-alloc-prefix-simple/profile",
+    "adaptive-buffer-simple/profile",
+]
+
+[dependencies]
+logger-baseline = { path = "../baseline" }
+logger-baseline-simple = { path = "../baseline-simple" }
+logger-cache-prefix = { path = "../cache-prefix-simple" }
+static-alloc-prefix-simple = { path = "../static-alloc-prefix-simple" }
+adaptive-buffer-simple = { path = "../adaptive-buffer-simple" }
+logger-demo = { path = ".." }
+spdlog-rs = { version = "0.5.3", features = ["flexible-string"] }
+
+[dev-dependencies]
+criterion = { version = "0.7", default-features = false, features = [
+    "cargo_bench_support",
+] }
+
+[[bench]]
+name = "formatting"
+harness = false
+
+[[bench]]
+name = "phases"
+harness = false
+
+[[bench]]
+name = "cache_prefix_phases"
+harness = false
+
+[[bench]]
+name = "static_alloc_phases"
+harness = false
+
+[[bench]]
+name = "adaptive_buffer_phases"
+harness = false
