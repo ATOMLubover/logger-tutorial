@@ -1,5 +1,7 @@
 [workspace]
-members = []
+members = [
+    "baseline",
+]
 resolver = "3"
 
 # benchmark 与 release 统一使用 O2 + 单 codegen unit + LTO，
