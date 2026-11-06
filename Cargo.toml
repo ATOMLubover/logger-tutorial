@@ -4,6 +4,7 @@ members = [
     "baseline-simple",
     "cache-prefix-simple",
     "static-alloc-prefix-simple",
+    "adaptive-buffer-simple",
 ]
 resolver = "3"
 
