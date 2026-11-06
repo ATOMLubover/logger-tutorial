@@ -2,6 +2,7 @@
 members = [
     "baseline",
     "baseline-simple",
+    "cache-prefix-simple",
 ]
 resolver = "3"
 
